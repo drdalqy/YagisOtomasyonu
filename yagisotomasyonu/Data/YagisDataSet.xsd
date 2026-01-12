@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="YagisDataSet" targetNamespace="http://tempuri.org/YagisDataSet.xsd" xmlns:mstns="http://tempuri.org/YagisDataSet.xsd" xmlns="http://tempuri.org/YagisDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="YagisDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="YagisDataSet" msprop:Generator_DataSetName="YagisDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="YillikYagis" msprop:Generator_RowEvHandlerName="YillikYagisRowChangeEventHandler" msprop:Generator_RowDeletedName="YillikYagisRowDeleted" msprop:Generator_RowDeletingName="YillikYagisRowDeleting" msprop:Generator_RowEvArgName="YillikYagisRowChangeEvent" msprop:Generator_TablePropName="YillikYagis" msprop:Generator_RowChangedName="YillikYagisRowChanged" msprop:Generator_RowChangingName="YillikYagisRowChanging" msprop:Generator_TableClassName="YillikYagisDataTable" msprop:Generator_RowClassName="YillikYagisRow" msprop:Generator_TableVarName="tableYillikYagis" msprop:Generator_UserTableName="YillikYagis">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IlAdi" msprop:Generator_ColumnPropNameInRow="IlAdi" msprop:Generator_ColumnPropNameInTable="IlAdiColumn" msprop:Generator_ColumnVarNameInTable="columnIlAdi" msprop:Generator_UserColumnName="IlAdi" type="xs:string" minOccurs="0" />
+              <xs:element name="Yil" msprop:Generator_ColumnPropNameInRow="Yil" msprop:Generator_ColumnPropNameInTable="YilColumn" msprop:Generator_ColumnVarNameInTable="columnYil" msprop:Generator_UserColumnName="Yil" type="xs:int" minOccurs="0" />
+              <xs:element name="Toplam" msprop:Generator_ColumnPropNameInRow="Toplam" msprop:Generator_ColumnPropNameInTable="ToplamColumn" msprop:Generator_ColumnVarNameInTable="columnToplam" msprop:Generator_UserColumnName="Toplam" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

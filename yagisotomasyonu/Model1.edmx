@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="YagisDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Iller">
+          <Key>
+            <PropertyRef Name="IlId" />
+          </Key>
+          <Property Name="IlId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IlAdi" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Yagislar">
+          <Key>
+            <PropertyRef Name="YagisId" />
+          </Key>
+          <Property Name="YagisId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IlId" Type="int" />
+          <Property Name="Yil" Type="int" />
+          <Property Name="Ay" Type="nvarchar" MaxLength="20" />
+          <Property Name="Miktar" Type="float" />
+        </EntityType>
+        <Association Name="FK__Yagislar__IlId__4BAC3F29">
+          <End Role="Iller" Type="Self.Iller" Multiplicity="0..1" />
+          <End Role="Yagislar" Type="Self.Yagislar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Iller">
+              <PropertyRef Name="IlId" />
+            </Principal>
+            <Dependent Role="Yagislar">
+              <PropertyRef Name="IlId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="YagisDBModelStoreContainer">
+          <EntitySet Name="Iller" EntityType="Self.Iller" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Yagislar" EntityType="Self.Yagislar" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Yagislar__IlId__4BAC3F29" Association="Self.FK__Yagislar__IlId__4BAC3F29">
+            <End Role="Iller" EntitySet="Iller" />
+            <End Role="Yagislar" EntitySet="Yagislar" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="YagisDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Iller">
+          <Key>
+            <PropertyRef Name="IlId" />
+          </Key>
+          <Property Name="IlId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IlAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Yagislar" Relationship="Self.FK__Yagislar__IlId__4BAC3F29" FromRole="Iller" ToRole="Yagislar" />
+        </EntityType>
+        <EntityType Name="Yagislar">
+          <Key>
+            <PropertyRef Name="YagisId" />
+          </Key>
+          <Property Name="YagisId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IlId" Type="Int32" />
+          <Property Name="Yil" Type="Int32" />
+          <Property Name="Ay" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Miktar" Type="Double" />
+          <NavigationProperty Name="Iller" Relationship="Self.FK__Yagislar__IlId__4BAC3F29" FromRole="Yagislar" ToRole="Iller" />
+        </EntityType>
+        <Association Name="FK__Yagislar__IlId__4BAC3F29">
+          <End Role="Iller" Type="Self.Iller" Multiplicity="0..1" />
+          <End Role="Yagislar" Type="Self.Yagislar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Iller">
+              <PropertyRef Name="IlId" />
+            </Principal>
+            <Dependent Role="Yagislar">
+              <PropertyRef Name="IlId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="YagisDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Iller" EntityType="Self.Iller" />
+          <EntitySet Name="Yagislar" EntityType="Self.Yagislar" />
+          <AssociationSet Name="FK__Yagislar__IlId__4BAC3F29" Association="Self.FK__Yagislar__IlId__4BAC3F29">
+            <End Role="Iller" EntitySet="Iller" />
+            <End Role="Yagislar" EntitySet="Yagislar" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="YagisDBModelStoreContainer" CdmEntityContainer="YagisDBEntities">
+          <EntitySetMapping Name="Iller">
+            <EntityTypeMapping TypeName="YagisDBModel.Iller">
+              <MappingFragment StoreEntitySet="Iller">
+                <ScalarProperty Name="IlId" ColumnName="IlId" />
+                <ScalarProperty Name="IlAdi" ColumnName="IlAdi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Yagislar">
+            <EntityTypeMapping TypeName="YagisDBModel.Yagislar">
+              <MappingFragment StoreEntitySet="Yagislar">
+                <ScalarProperty Name="YagisId" ColumnName="YagisId" />
+                <ScalarProperty Name="IlId" ColumnName="IlId" />
+                <ScalarProperty Name="Yil" ColumnName="Yil" />
+                <ScalarProperty Name="Ay" ColumnName="Ay" />
+                <ScalarProperty Name="Miktar" ColumnName="Miktar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
